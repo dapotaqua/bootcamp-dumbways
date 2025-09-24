@@ -16,7 +16,7 @@ body {
     align-items: center;
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.491);
     border-radius: 25px;
-     background-color: white;
+    background-color: white;
 }
 
 #container .col-1 img {
