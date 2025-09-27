@@ -1,0 +1,7 @@
+section .container {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.338);
+}
+
+section .container .row .col-md-4 .card {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.498);
+}
