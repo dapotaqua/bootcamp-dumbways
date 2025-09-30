@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body style="background-color: rgba(128, 128, 128, 0.2);">
+
+    <div class="container mt-5" id="project-detail">
+        <!-- detail project masuk di sini -->
+    </div>
+
+    <script>
+        // jalanin kode pas halaman udah ke-load
+        document.addEventListener("DOMContentLoaded", function () {
+            // ambil tempat buat nampilin detail project
+            const detailContainer = document.getElementById("project-detail");
+
+            // ambil data project yg udah disimpen di localStorage
+            const projectData = JSON.parse(localStorage.getItem("projectDetail"));
+
+            // kalo semisal data gaada di localStorage, tampilin teks lalu stop
+            if (!projectData) {
+                detailContainer.innerHTML = "<p>No project data found.</p>";
+                return;
+            }
+
+            // isi konten detail project ke dalam container
+            detailContainer.innerHTML = `
+            <h1>${projectData.name}</h1>
+            <div class="row d-flex mb-4">
+              <div class="col-md-6">
+                <!-- kalo ada gambar, baru ditampilin -->
+                ${projectData.imageBase64 ? `<img class="img-fluid" src="${projectData.imageBase64}" alt="${projectData.name}">` : ""}
+              </div>
+              <div class="col-md-6">
+                <h5>Duration</h5>
+                <!-- nampilin tanggal mulai sampe selesai -->
+                <p><i class="fa-solid fa-calendar-days"></i> ${projectData.startDate} - ${projectData.endDate}</p>
+                <h5>Technologies</h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- list teknologi yg dipilih, kalo ga ada muncul 'None' -->
+                    <p>${projectData.techs.join(", ") || "None"}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section mt-4">
+              <!-- deskripsi project -->
+              <p>${projectData.description}</p>
+            </div>
+            <!-- tombol balik ke halaman project -->
+            <a href="projects.html" class="btn btn-secondary mt-3">Back to Projects</a>
+        `;
+        });
+    </script>
+
+</body>
+
+</html>
