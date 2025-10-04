@@ -1,0 +1,15 @@
+.contact-form {
+    display: flex;
+    justify-content: center;
+    
+}
+
+form {
+    padding: 20px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.336);
+}
+
+section .row {
+    padding: 50px;
+    background-color: rgba(128, 128, 128, 0.53);
+}
